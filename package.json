@@ -1,0 +1,21 @@
+{
+  "name": "weather_report",
+  "version": "1.0.0",
+  "description": "This is a web app which shows current weather report",
+  "scripts": {
+    "start": "parcel public/index.html",
+    "build": "parcel build public/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhinav Ranjan",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
