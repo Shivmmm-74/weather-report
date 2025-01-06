@@ -1,1 +1,7 @@
-export const navlist = ["Today", "Hourly", "Dayily", "AirQuality", "Health"];
+export const navlist = [
+  { link: "/", name: "Today" },
+  { link: "/hourly", name: "Hourly" },
+  { link: "/daily", name: "Daily" },
+  { link: "/airquality", name: "AirQuality" },
+  { link: "/health", name: "Health" },
+];

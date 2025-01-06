@@ -1,4 +1,6 @@
 import React from "react";
+import "../utils/images/error.png";
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
@@ -13,21 +15,23 @@ const ErrorPage = () => {
       </p>
 
       {/* Go to Homepage Button */}
-      <button className='mt-6 px-6 py-3 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:ring focus:ring-blue-300'>
-        Go to Homepage
-      </button>
+      <Link to='/'>
+        <button className='mt-6 px-6 py-3 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:ring focus:ring-blue-300'>
+          Go to Homepage
+        </button>
+      </Link>
 
       {/* Image Section */}
       <div className='mt-8 w-full max-w-xs sm:max-w-md'>
         <img
-          src='../utils/image/error.png'
+          src={require("../utils/images/error.png")}
           alt='404 Error'
           className='w-full'
         />
       </div>
 
       {/* Attribution */}
-      <p className='text-sm text-gray-500 mt-4'>Image by Freepik</p>
+      <p className='text-sm text-gray-500 mt-4'>Developer Abhinav Ranjan</p>
     </div>
   );
 };
