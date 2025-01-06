@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./input.css";
+import AppLayout from "./Components/AppLayout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<h1>heeloo</h1>);
+root.render(<AppLayout />);
