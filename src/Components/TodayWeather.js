@@ -43,7 +43,7 @@ const TodayWeather = () => {
             <p className='font-bold'>
               <span className='text-xl'>High </span>
               {today.maxtemp_c}
-              <sup>o</sup>c
+              <sup>o</sup>
             </p>
             <p className='font-bold'>
               <span className='text-xl'>Low </span>
