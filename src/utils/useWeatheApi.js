@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addWeather } from "./weatherSlice";
+import { addoriginWeather, addWeather } from "./weatherSlice";
 import { useState, useEffect } from "react";
 
 const useWeatheApi = () => {
@@ -37,6 +37,9 @@ const useWeatheApi = () => {
     const loaction = json.location;
     const forecast = json.forecast;
     console.log(json);
+    dispatch(
+      addoriginWeather({ currentWeather: current, currentLocation: loaction })
+    );
     dispatch(
       addWeather({ current: current, location: loaction, forecast: forecast })
     );
