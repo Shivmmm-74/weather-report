@@ -51,8 +51,8 @@ const TodayWeather = () => {
               <sup>o</sup>c
             </p>
           </div>
-          <div className='row-span-3 flex flex-col pr-1 sm:px-4 sm:gap-5'>
-            <div className='flex justify-between sm:flex-row flex-col pt-2 sm:pt-5'>
+          <div className='row-span-3 flex flex-col pr-1 sm:px-4 sm:justify-center sm:gap-8'>
+            <div className='flex justify-between sm:flex-row flex-col pt-2 '>
               <p className='font-bold'>
                 <span className='sm:text-lg text-base font-bold text-gray-500'>
                   AQI:
