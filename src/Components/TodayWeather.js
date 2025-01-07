@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import useAQIStatus from "../utils/useAqiStatus";
 
 const TodayWeather = () => {
   const day = useSelector((store) => store.weather.weatherForecast);
   const location = useSelector((store) => store.weather.location);
   if (!day || !Location) return <h1>Loading</h1>;
   const today = day.forecastday[0].day;
-
+  const aqi = today.air_quality["us-epa-index"];
+  const { color, text } = useAQIStatus(aqi);
   const localday_time = location.localtime;
   const [datePart, timePart] = localday_time.split(" ");
   const dateObj = new Date(datePart);
@@ -49,7 +51,35 @@ const TodayWeather = () => {
               <sup>o</sup>c
             </p>
           </div>
-          <div className='row-span-3 '>4</div>
+          <div className='row-span-3 flex flex-col pr-1 sm:px-4 sm:gap-5'>
+            <div className='flex justify-between sm:flex-row flex-col pt-2 sm:pt-5'>
+              <p className='font-bold'>
+                <span className='sm:text-lg text-base font-bold text-gray-500'>
+                  AQI:
+                </span>
+                {aqi}
+              </p>
+              <p className='font-bold'>
+                <span className='sm:text-lg text-base  font-bold text-gray-500'>
+                  status:
+                </span>
+                <span className={`${color}`}>{text}</span>
+              </p>
+            </div>
+            <p className='sm:font-bold font-semibold '>
+              <span className='text-sm sm:text-lg font-bold text-blue-400'>
+                Chances of Rain :
+              </span>
+              {today.daily_chance_of_rain}%
+            </p>
+            <p className='font-bold'>
+              <span className='sm:text-lg text-base  font-bold text-gray-500'>
+                Avg Temp:
+              </span>
+              {Math.round(today.avgtemp_c)}
+              <sup>o</sup>c
+            </p>
+          </div>
         </div>
       </div>
     </div>
