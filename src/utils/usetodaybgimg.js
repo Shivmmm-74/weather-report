@@ -17,6 +17,12 @@ const useTodayBgImg = ({ weatherCondition }) => {
   if (weatherCondition.includes("partly")) {
     return require("../assets/partlyday.jpeg");
   }
+  if (weatherCondition.includes("mist")) {
+    return require("../assets/mistday.jpeg");
+  }
+  if (weatherCondition.includes("fogg") || weatherCondition.includes("foggy")) {
+    return require("../assets/foggday.jpeg");
+  }
   if (
     weatherCondition.includes("cloud") ||
     weatherCondition.includes("cloudy")

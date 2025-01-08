@@ -53,12 +53,12 @@ const TodayWeather = () => {
             <div className='col-span-2 flex items-center pl-2 sm:pl-14 sm:gap-14 gap-3 '>
               <p className='font-bold'>
                 <span className='text-xl'>High </span>
-                {today.maxtemp_c}
+                {Math.floor(today.maxtemp_c)}
                 <sup>o</sup>c
               </p>
               <p className='font-bold'>
                 <span className='text-xl'>Low </span>
-                {today.mintemp_c}
+                {Math.floor(today.mintemp_c)}
                 <sup>o</sup>c
               </p>
             </div>

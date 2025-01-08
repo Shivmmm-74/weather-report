@@ -31,6 +31,16 @@ const useBackgroundImage = ({ weatherCondition, is_day }) => {
       ? require("../assets/clodyday.jpeg")
       : require("../assets/cloudynight.jpg");
   }
+  if (weatherCondition.includes("mist")) {
+    return is_day
+      ? require("../assets/mistday.jpeg")
+      : require("../assets/mistnight.jpeg");
+  }
+  if (weatherCondition.includes("fogg") || weatherCondition.includes("foggy")) {
+    return is_day
+      ? require("../assets/foggday.jpeg")
+      : require("../assets/foggnight.jpg");
+  }
   if (weatherCondition.includes("clear")) {
     return is_day
       ? require("../assets/sunny.jpg")
