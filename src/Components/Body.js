@@ -5,8 +5,8 @@ import CurrentWeather from "./CurrentWeather";
 const Body = () => {
   return (
     <>
-      <TodayWeather />
       <CurrentWeather />
+      <TodayWeather />
     </>
   );
 };

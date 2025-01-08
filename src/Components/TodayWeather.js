@@ -39,7 +39,7 @@ const TodayWeather = () => {
             backgroundColor: "white", // Fallback color
           }}
         >
-          <div className='grid grid-rows-3 grid-flow-col gap-2 sm:gap-4 h-full pb-2 bg-gray-400 bg-opacity-40'>
+          <div className='grid grid-rows-3 grid-flow-col gap-2 sm:gap-4 h-full pb-2 bg-gray-400 bg-opacity-60'>
             <div className='row-span-2 col-span-2 flex  items-center sm:pl-14 sm:gap-7'>
               <img
                 src={today.condition.icon}
@@ -81,7 +81,7 @@ const TodayWeather = () => {
                 <span className='text-sm sm:text-lg font-bold text-blue-600'>
                   Chances of Rain :
                 </span>
-                {today.daily_chance_of_rain}%
+                {today.daily_chance_of_rain ? "Yes" : "No"}
               </p>
               <p className='font-bold'>
                 <span className='sm:text-lg text-base  font-bold text-gray-800'>

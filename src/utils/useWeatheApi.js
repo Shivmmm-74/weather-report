@@ -30,7 +30,7 @@ const useWeatheApi = () => {
 
   const fetchWeatherReport = async () => {
     const data = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=8e198c24f8ba4748918110754250501&q=dehradun&days=3&aqi=yes&alerts=no`
+      `https://api.weatherapi.com/v1/forecast.json?key=8e198c24f8ba4748918110754250501&q=${latitude},${longitude}&days=3&aqi=yes&alerts=no`
     );
     const json = await data.json();
     const current = json.current;
