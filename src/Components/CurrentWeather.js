@@ -28,7 +28,7 @@ const CurrentWeather = () => {
   // Determine the background image based on weather condition
 
   const backgroundImage = useBackgroundImage({
-    weatherCondition: weatherCondition,
+    weatherCondition: weatherCondition.toLowerCase(),
     is_day: is_day,
   });
   return (

@@ -7,19 +7,30 @@ const useWeatheApi = () => {
   const dispatch = useDispatch();
   const [latitude, setLatitude] = useState();
   const [longitude, setLongitude] = useState();
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      alert("geolocation not supported by this browser");
-    }
-  };
-  const showPosition = (position) => {
-    setLatitude(position.coords.latitude);
-    setLongitude(position.coords.longitude);
-  };
   useEffect(() => {
-    getLocation();
+    if (navigator.geolocation) {
+      const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0, // for not chached historyb location
+      };
+
+      function success(position) {
+        const { latitude, longitude } = position.coords;
+        setLatitude(latitude);
+        setLongitude(longitude);
+        console.log("Latitude:", latitude);
+        console.log("Longitude:", longitude);
+      }
+
+      function error(err) {
+        console.error("Error getting location:", err.message);
+      }
+
+      navigator.geolocation.getCurrentPosition(success, error, options);
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
   }, []);
 
   useEffect(() => {
@@ -30,7 +41,7 @@ const useWeatheApi = () => {
 
   const fetchWeatherReport = async () => {
     const data = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=8e198c24f8ba4748918110754250501&q=jamshedpur&days=3&aqi=yes&alerts=no`
+      `https://api.weatherapi.com/v1/forecast.json?key=8e198c24f8ba4748918110754250501&q=${latitude},${longitude}&days=3&aqi=yes&alerts=no`
     );
     const json = await data.json();
     const current = json.current;

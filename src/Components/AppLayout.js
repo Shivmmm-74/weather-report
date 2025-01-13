@@ -7,7 +7,7 @@ import appStore from "../utils/appStore";
 
 const AppLayout = () => {
   return (
-    <div className='w-screen'>
+    <div className='w-full'>
       <Provider store={appStore}>
         <Header />
         <Navbar />
