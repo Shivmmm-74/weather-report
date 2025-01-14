@@ -2,6 +2,7 @@ import React from "react";
 import TodayWeather from "./TodayWeather";
 import CurrentWeather from "./CurrentWeather";
 import AstroCard from "./AstroCard";
+import HourlyCard from "./HourlyCard";
 
 const Body = () => {
   return (
@@ -9,6 +10,7 @@ const Body = () => {
       <CurrentWeather />
       <TodayWeather />
       <AstroCard />
+      <HourlyCard />
     </div>
   );
 };

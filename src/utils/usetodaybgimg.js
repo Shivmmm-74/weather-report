@@ -20,6 +20,9 @@ const useTodayBgImg = ({ weatherCondition }) => {
   if (weatherCondition.includes("mist")) {
     return require("../assets/mistday.jpeg");
   }
+  if (weatherCondition.includes("overcast")) {
+    return require("../assets/overcast_night.jpg");
+  }
   if (weatherCondition.includes("fogg") || weatherCondition.includes("foggy")) {
     return require("../assets/foggday.jpeg");
   }

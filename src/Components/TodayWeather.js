@@ -23,7 +23,6 @@ const TodayWeather = () => {
   const backgroundImage = useTodayBgImg({
     weatherCondition: weatherCondition.toLowerCase(),
   });
-  console.log("Formatted Date:", formattedDate);
   return (
     <div className='sm:px-64 px-2 mt-5 sm:mt-10'>
       <div className='bg-gray-200 border border-black w-full sm:h-64 flex flex-col rounded-md overflow-hidden'>

@@ -23,6 +23,11 @@ const useBackgroundImage = ({ weatherCondition, is_day }) => {
       ? require("../assets/partlyday.jpeg")
       : require("../assets/partlynight.jpg");
   }
+  if (weatherCondition.includes("overcast")) {
+    return is_day
+      ? require("../assets/overcast_night.jpg") //opposite image name
+      : require("../assets/overcast_day.jpg");
+  }
   if (
     weatherCondition.includes("cloud") ||
     weatherCondition.includes("cloudy")

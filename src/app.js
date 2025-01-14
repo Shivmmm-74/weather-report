@@ -1,15 +1,16 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./input.css";
 import AppLayout from "./Components/AppLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Body from "./Components/Body";
-import Hourly from "./Components/Hourly";
 import Daily from "./Components/Daily";
 import AirQuality from "./Components/AirQuality";
 import Health from "./Components/Health";
 import ErrorPage from "./Components/ErrorPage";
+import Shimmer from "./Components/Shimmer";
 
+const LazzyHourly = lazy(() => import("./Components/Hourly"));
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -21,7 +22,12 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/hourly",
-        element: <Hourly />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            {" "}
+            <LazzyHourly />
+          </Suspense>
+        ),
       },
       {
         path: "/daily",
