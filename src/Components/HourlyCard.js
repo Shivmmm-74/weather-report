@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import leftarrow from "../assets/arrow/leftarrow.png";
+import right from "../assets/arrow/right.png";
 
 const HourlyCard = () => {
   const hourly = useSelector(
@@ -8,9 +10,29 @@ const HourlyCard = () => {
   const secondHourly = useSelector(
     (store) => store.weather?.weatherForecast?.forecastday[1]?.hour
   );
+  console.log("hourly", hourly);
 
   const [currentTime, setCurrentTime] = useState("");
   const [hrFilter, setHrFilter] = useState([]);
+  const cont = useRef(null);
+
+  const handleScrollLeft = () => {
+    if (cont.current) {
+      cont.current.scrollBy({
+        left: -100, // Scroll by 100px to the left
+        behavior: "smooth", // Smooth scrolling
+      });
+    }
+  };
+
+  const handleScrollRight = () => {
+    if (cont.current) {
+      cont.current.scrollBy({
+        left: 100, // Scroll by 100px to the right
+        behavior: "smooth", // Smooth scrolling
+      });
+    }
+  };
 
   useEffect(() => {
     if (hourly) {
@@ -18,7 +40,7 @@ const HourlyCard = () => {
       const filteredData = hourly.filter(
         (h) => h.time_epoch >= currentTime_epoch
       );
-      setHrFilter(filteredData); // Update the state with filtered data // inf not in useffect then it will cause infinte looop impotant
+      setHrFilter(filteredData); // Update the state with filtered data
     }
 
     const interval = setInterval(() => {
@@ -31,27 +53,76 @@ const HourlyCard = () => {
 
   if (!hourly) return <div></div>;
   console.log(hrFilter);
+
   return (
-    <div className=' mt-5 sm:mt-10 sm:px-64 px-2'>
-      <div className='bg-gray-200 border border-black w-full sm:h-64 flex flex-col rounded-md '>
-        <div className='border-b-2 border-black px-8  sm:px-12 py-2  flex justify-between'>
+    <div className='mt-5 sm:mt-10 sm:px-64 px-2'>
+      <div className='bg-gray-200 border border-black w-full flex flex-col rounded-md'>
+        <div className='border-b-2 border-black px-8 sm:px-12 py-2 flex justify-between'>
           <p className='font-bold text-sm text-gray-500'>Hourly</p>
           <p className='font-bold text-sm text-gray-600'>{currentTime} </p>
         </div>
-        <div className=' flex flex-row overflow-x-scroll h-full w-full gap-5 '>
-          {hrFilter.map((e) => (
-            <div className='w-32 border border-black h-full flex-shrink-0'>
-              {}
-            </div>
-          ))}
-          {secondHourly.map((e) => (
-            <div className='w-32 border border-black h-full flex-shrink-0'>
-              {new Date(e.time_epoch * 1000).toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </div>
-          ))}
+        <div className='relative flex flex-row overflow-x-auto group w-full gap-5 p-2 sm:p-5'>
+          {/* Scroll Left Button */}
+          <button
+            className='hidden absolute left-0 top-1/2 transform -translate-y-1/2 z-40 sm:group-hover:block'
+            onClick={handleScrollLeft}
+          >
+            <img src={leftarrow} className='w-11'></img>
+          </button>
+
+          {/* Scroll Right Button */}
+          <button
+            className='hidden absolute right-0 top-1/2 transform -translate-y-1/2 z-40 group-hover:block'
+            onClick={handleScrollRight}
+          >
+            <img src={right} className='w-11'></img>
+          </button>
+
+          <div
+            ref={cont}
+            className='flex flex-row w-full whitespace-nowrap overflow-x-auto'
+            style={{ scrollBehavior: "smooth" }}
+          >
+            {/* Hourly Data */}
+            {hrFilter.map((e) => (
+              <div
+                key={e.time_epoch}
+                className='w-32 border border-black h-full flex-shrink-0'
+              >
+                <div className='flex flex-col justify-center items-center'>
+                  <p>
+                    {new Date(e.time_epoch * 1000).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </p>
+                  <div>
+                    <img src={e.condition.icon} alt='weather icon' />
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Second Hourly Data */}
+            {secondHourly.map((e) => (
+              <div
+                key={e.time_epoch}
+                className='w-32 border border-black h-full flex-shrink-0'
+              >
+                <div className='flex flex-col justify-center items-center'>
+                  <p>
+                    {new Date(e.time_epoch * 1000).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </p>
+                  <div>
+                    <img src={e.condition.icon} alt='weather icon' />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
