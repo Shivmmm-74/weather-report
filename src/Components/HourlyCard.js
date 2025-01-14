@@ -19,8 +19,8 @@ const HourlyCard = () => {
   const handleScrollLeft = () => {
     if (cont.current) {
       cont.current.scrollBy({
-        left: -100, // Scroll by 100px to the left
-        behavior: "smooth", // Smooth scrolling
+        left: -250,
+        behavior: "smooth",
       });
     }
   };
@@ -28,19 +28,19 @@ const HourlyCard = () => {
   const handleScrollRight = () => {
     if (cont.current) {
       cont.current.scrollBy({
-        left: 100, // Scroll by 100px to the right
-        behavior: "smooth", // Smooth scrolling
+        left: 250,
+        behavior: "smooth",
       });
     }
   };
 
   useEffect(() => {
     if (hourly) {
-      const currentTime_epoch = Math.floor(Date.now() / 1000); // Current time in seconds (epoch)
+      const currentTime_epoch = Math.floor(Date.now() / 1000); // i got time in milisecond so convert t in second
       const filteredData = hourly.filter(
         (h) => h.time_epoch >= currentTime_epoch
       );
-      setHrFilter(filteredData); // Update the state with filtered data
+      setHrFilter(filteredData);
     }
 
     const interval = setInterval(() => {
@@ -61,7 +61,7 @@ const HourlyCard = () => {
           <p className='font-bold text-sm text-gray-500'>Hourly</p>
           <p className='font-bold text-sm text-gray-600'>{currentTime} </p>
         </div>
-        <div className='relative flex flex-row overflow-x-auto group w-full gap-5 p-2 sm:p-5'>
+        <div className='relative flex flex-row  group w-full gap-5 p-2 sm:p-5 sm:text-lg font-bold bg-gradient-to-t from-orange-500 to-amber-300'>
           {/* Scroll Left Button */}
           <button
             className='hidden absolute left-0 top-1/2 transform -translate-y-1/2 z-40 sm:group-hover:block'
@@ -80,14 +80,14 @@ const HourlyCard = () => {
 
           <div
             ref={cont}
-            className='flex flex-row w-full whitespace-nowrap overflow-x-auto'
+            className='flex flex-row w-full overflow-x-auto no-scrollbar gap-2 sm:gap-5'
             style={{ scrollBehavior: "smooth" }}
           >
             {/* Hourly Data */}
             {hrFilter.map((e) => (
               <div
                 key={e.time_epoch}
-                className='w-32 border border-black h-full flex-shrink-0'
+                className='w-20 sm:w-32 border border-black h-full flex-shrink-0  bg-gradient-to-b from-sky-400 to-violet-500'
               >
                 <div className='flex flex-col justify-center items-center'>
                   <p>
@@ -99,6 +99,10 @@ const HourlyCard = () => {
                   <div>
                     <img src={e.condition.icon} alt='weather icon' />
                   </div>
+                  <p>
+                    {Math.round(e.temp_c)}
+                    <sup>o</sup>c
+                  </p>
                 </div>
               </div>
             ))}
@@ -107,7 +111,7 @@ const HourlyCard = () => {
             {secondHourly.map((e) => (
               <div
                 key={e.time_epoch}
-                className='w-32 border border-black h-full flex-shrink-0'
+                className='w-20 sm:w-32  border border-black h-full flex-shrink-0 bg-gradient-to-b from-sky-400 to-violet-500'
               >
                 <div className='flex flex-col justify-center items-center'>
                   <p>
@@ -119,6 +123,10 @@ const HourlyCard = () => {
                   <div>
                     <img src={e.condition.icon} alt='weather icon' />
                   </div>
+                  <p>
+                    {Math.round(e.temp_c)}
+                    <sup>o</sup>c
+                  </p>
                 </div>
               </div>
             ))}
