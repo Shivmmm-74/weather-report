@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import useAQIStatus from "../utils/useAqiStatus";
 import useTodayBgImg from "../utils/usetodaybgimg";
+import generateTodayWeatherMessage from "../utils/generateTodayweathermsg";
 
 const TodayWeather = () => {
   const day = useSelector((store) => store.weather.weatherForecast);
+  const [isShowMore, setIsShowMore] = useState(false);
   const location = useSelector((store) => store.weather.location);
   if (!day || !Location) return <h1>Loading</h1>;
   const today = day.forecastday[0].day;
@@ -23,9 +25,17 @@ const TodayWeather = () => {
   const backgroundImage = useTodayBgImg({
     weatherCondition: weatherCondition.toLowerCase(),
   });
+  const weatherMessage = generateTodayWeatherMessage({
+    temp: today.avgtemp_c,
+    humidity: today.avghumidity,
+    cloud: today.cloud,
+    aqi: aqi,
+    condition: weatherCondition.toLowerCase(),
+  });
+
   return (
     <div className='sm:px-64 px-2 mt-5 sm:mt-10'>
-      <div className='bg-gray-200 border border-black w-full sm:h-64 flex flex-col rounded-md overflow-hidden'>
+      <div className='bg-gray-200 border border-black w-full  flex flex-col rounded-md overflow-hidden'>
         <div className='border-b-2 border-black px-8  sm:px-12 py-2  flex justify-between'>
           <p className='font-bold text-sm text-gray-500'> Today's weather</p>
           <p className='font-bold text-sm text-gray-600'>{formattedDate}</p>
@@ -93,6 +103,21 @@ const TodayWeather = () => {
               </p>
             </div>
           </div>
+        </div>
+        <div className='sm:p-3 bg-gray-800 text-center text-white font-semibold '>
+          <divc
+            className={`${isShowMore ? "line-clamp-none" : " line-clamp-2"}`}
+          >
+            {weatherMessage}
+          </divc>
+          <button
+            className='text-semibold'
+            onClick={() => {
+              setIsShowMore(!isShowMore);
+            }}
+          >
+            {isShowMore ? "....Show Less" : "Show More...."}
+          </button>
         </div>
       </div>
     </div>

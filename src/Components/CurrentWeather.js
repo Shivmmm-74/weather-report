@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Shimmer from "./Shimmer";
 import useBackgroundImage from "../utils/useBackgroungImage";
@@ -9,7 +9,7 @@ const CurrentWeather = () => {
   const localday_time = location?.localtime || "";
   const [datePart, timePart] = localday_time.split(" ") || ["", ""];
   const current = useSelector((store) => store.weather.currentWeather);
-
+  const [isShowMore, setIsShowMore] = useState(false);
   if (!current) {
     return <Shimmer />;
   }
@@ -108,9 +108,20 @@ const CurrentWeather = () => {
             </div>
           </div>
         </div>
-
-        <div className='sm:p-3 bg-gray-800 text-center text-white font-semibold'>
-          {weatherMessage}
+        <div className='sm:p-3 bg-gray-800 text-center text-white font-semibold '>
+          <divc
+            className={`${isShowMore ? "line-clamp-none" : " line-clamp-2"}`}
+          >
+            {weatherMessage}
+          </divc>
+          <button
+            className='text-semibold'
+            onClick={() => {
+              setIsShowMore(!isShowMore);
+            }}
+          >
+            {isShowMore ? "....Show Less" : "Show More...."}
+          </button>
         </div>
       </div>
     </div>
