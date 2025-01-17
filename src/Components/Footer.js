@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../logo.png";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
@@ -9,20 +10,20 @@ const Footer = () => {
 
           <ul class='flex flex-wrap items-center gap-y-2 gap-x-8'>
             <li>
-              <a
-                href='#'
+              <Link
+                to='/about'
                 class='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
               >
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='#'
+              <Link
+                to='/contact'
                 class='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
               >
-                License
-              </a>
+                Contact Us
+              </Link>
             </li>
             <li>
               <a
@@ -37,7 +38,7 @@ const Footer = () => {
                 href='#'
                 class='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
               >
-                Contact Us
+                License
               </a>
             </li>
           </ul>

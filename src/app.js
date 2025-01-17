@@ -9,6 +9,8 @@ import AirQuality from "./Components/AirQuality";
 import Health from "./Components/Health";
 import ErrorPage from "./Components/ErrorPage";
 import Shimmer from "./Components/Shimmer";
+import AboutUs from "./Components/Aboutus";
+import ContactUs from "./Components/Contactus";
 
 const LazzyHourly = lazy(() => import("./Components/Hourly"));
 const appRouter = createBrowserRouter([
@@ -41,6 +43,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/health",
         element: <Health />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />,
       },
     ],
     errorElement: <ErrorPage />,

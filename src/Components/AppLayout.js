@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import appStore from "../utils/appStore";
+import Footer from "./Footer";
 
 const AppLayout = () => {
   return (
@@ -12,6 +13,7 @@ const AppLayout = () => {
         <Header />
         <Navbar />
         <Outlet />
+        <Footer />
       </Provider>
     </div>
   );

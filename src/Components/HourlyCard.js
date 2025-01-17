@@ -19,7 +19,7 @@ const HourlyCard = () => {
   const handleScrollLeft = () => {
     if (cont.current) {
       cont.current.scrollBy({
-        left: -250,
+        left: -350,
         behavior: "smooth",
       });
     }
@@ -28,7 +28,7 @@ const HourlyCard = () => {
   const handleScrollRight = () => {
     if (cont.current) {
       cont.current.scrollBy({
-        left: 250,
+        left: 350,
         behavior: "smooth",
       });
     }
