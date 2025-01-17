@@ -10,7 +10,6 @@ const HourlyCard = () => {
   const secondHourly = useSelector(
     (store) => store.weather?.weatherForecast?.forecastday[1]?.hour
   );
-  console.log("hourly", hourly);
 
   const [currentTime, setCurrentTime] = useState("");
   const [hrFilter, setHrFilter] = useState([]);
@@ -52,7 +51,6 @@ const HourlyCard = () => {
   }, [hourly]);
 
   if (!hourly) return <div></div>;
-  console.log(hrFilter);
 
   return (
     <div className='mt-5 sm:mt-10 sm:px-64 px-2'>

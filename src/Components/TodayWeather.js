@@ -8,7 +8,7 @@ const TodayWeather = () => {
   const day = useSelector((store) => store.weather.weatherForecast);
   const [isShowMore, setIsShowMore] = useState(false);
   const location = useSelector((store) => store.weather.location);
-  if (!day || !Location) return <h1>Loading</h1>;
+  if (!day || !Location) return;
   const today = day.forecastday[0].day;
   const aqi = today.air_quality["us-epa-index"];
   const { color, text } = useAQIStatus(aqi);
@@ -105,11 +105,11 @@ const TodayWeather = () => {
           </div>
         </div>
         <div className='sm:p-3 bg-gray-800 text-center text-white font-semibold '>
-          <divc
+          <div
             className={`${isShowMore ? "line-clamp-none" : " line-clamp-2"}`}
           >
             {weatherMessage}
-          </divc>
+          </div>
           <button
             className='text-semibold'
             onClick={() => {

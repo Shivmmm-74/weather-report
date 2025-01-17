@@ -19,8 +19,6 @@ const useWeatheApi = () => {
         const { latitude, longitude } = position.coords;
         setLatitude(latitude);
         setLongitude(longitude);
-        console.log("Latitude:", latitude);
-        console.log("Longitude:", longitude);
       }
 
       function error(err) {

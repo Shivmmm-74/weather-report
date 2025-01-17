@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useRef } from "react";
+import useSearchinputWeather from "../utils/useSearchinputWeather";
 
 const SearchComponent = () => {
   const [showSearchBox, setShowSearchBox] = useState(false);
-
+  const [userInput, setuserInput] = useState(false);
   const toggleSearchBox = () => {
     setShowSearchBox((prev) => !prev);
   };
 
+  const searchstring = useRef();
+  useSearchinputWeather(userInput);
+  const handleSearchInput = () => {
+    setuserInput(searchstring.current.value);
+  };
   return (
     <div>
       {/* Main search area */}
@@ -23,10 +30,11 @@ const SearchComponent = () => {
         </button>
 
         {/* Search box for larger devices */}
-        <button className='hidden sm:block'>
+        <button className='hidden sm:flex' onClick={handleSearchInput}>
           <FontAwesomeIcon icon={faSearch} />
         </button>
         <input
+          ref={searchstring}
           placeholder='Enter City or ZipCode'
           className='hidden sm:block px-3 focus:outline-none focus:ring-0 border-none'
         />
@@ -36,10 +44,11 @@ const SearchComponent = () => {
       {showSearchBox && (
         <div className='fixed top-16 left-0 right-0 bg-white p-4 shadow-lg'>
           <div className='flex items-center gap-3'>
-            <button>
+            <button onClick={handleSearchInput}>
               <FontAwesomeIcon icon={faSearch} />
             </button>
             <input
+              ref={searchstring}
               placeholder='Enter City or ZipCode'
               className='flex-1 px-3 focus:outline-none focus:ring-0 border-none'
             />

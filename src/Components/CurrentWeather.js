@@ -109,11 +109,11 @@ const CurrentWeather = () => {
           </div>
         </div>
         <div className='sm:p-3 bg-gray-800 text-center text-white font-semibold '>
-          <divc
+          <div
             className={`${isShowMore ? "line-clamp-none" : " line-clamp-2"}`}
           >
             {weatherMessage}
-          </divc>
+          </div>
           <button
             className='text-semibold'
             onClick={() => {
