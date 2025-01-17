@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addoriginWeather, addWeather } from "./weatherSlice";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 const useSearchinputWeather = (input) => {
   const dispatch = useDispatch();
