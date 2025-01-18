@@ -44,7 +44,7 @@ const Footer = () => {
           </ul>
         </div>
         <p class='block mb-4 text-sm text-center text-slate-500 md:mb-0 border-t border-slate-200 mt-4 pt-4'>
-          Copyright © 2024&nbsp;
+          Copyright © 2025&nbsp;
           <a
             href='https://material-tailwind.com/'
             target='_blank'
