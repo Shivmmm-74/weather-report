@@ -7,7 +7,7 @@ const Daily = () => {
     (store) => store.weather?.weatherForecast?.forecastday || []
   );
 
-  console.log(weatherData);
+  // console.log(weatherData);
   return (
     <div>
       {weatherData.map((e, index) => {

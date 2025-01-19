@@ -13,7 +13,6 @@ const TodayWeather = () => {
   );
   const [isShowMore, setIsShowMore] = useState(false);
   const location = useSelector((store) => store?.weather?.location);
-  console.log(today);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

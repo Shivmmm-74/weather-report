@@ -10,7 +10,7 @@ const Hourly = () => {
 
   useEffect(() => {
     if (weatherData) {
-      const currentTime_epoch = Math.floor(Date.now() / 1000); // Convert milliseconds to seconds
+      const currentTime_epoch = Math.floor(Date.now() / 1000);
       const filteredData = weatherData.filter(
         (h) => h.time_epoch >= currentTime_epoch
       );
@@ -21,8 +21,8 @@ const Hourly = () => {
   return (
     <div>
       {hrFilter.map((e, index) => {
-        const aqi = e.air_quality?.["us-epa-index"];
-        const { color, text } = useAQIStatus(aqi);
+        // const aqi = e.air_quality?.["us-epa-index"];
+        // const { color, text } = useAQIStatus(aqi);
 
         return (
           <div key={index} className='bg-gray-100 p-6 py-6 sm:px-64'>
@@ -54,10 +54,10 @@ const Hourly = () => {
                     </div>
                   </div>
                   <div className='flex justify-between text-sm space-x-8 mt-2'>
-                    <div>
+                    {/* <div>
                       <p className='text-gray-500'>Air Quality</p>
                       <p className={`${color} font-semibold`}>{text}</p>
-                    </div>
+                    </div> */}
                     <div>
                       <p className='text-gray-500'>Humidity</p>
                       <p>{e.humidity}%</p>

@@ -21,7 +21,7 @@ const useSearchinputWeather = (input) => {
     const current = json.current;
     const loaction = json.location;
     const forecast = json.forecast;
-    console.log(json);
+    // console.log(json);
     dispatch(
       addWeather({ current: current, location: loaction, forecast: forecast })
     );

@@ -27,7 +27,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href='#'
+                href='https://github.com/abhinavranjan23/weather_report'
                 className='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
               >
                 Contribute

@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Body from "./Components/Body";
 import Daily from "./Components/Daily";
 import AirQuality from "./Components/AirQuality";
-import Health from "./Components/Health";
 import ErrorPage from "./Components/ErrorPage";
 import Shimmer from "./Components/Shimmer";
 import AboutUs from "./Components/Aboutus";
@@ -38,11 +37,6 @@ const appRouter = createBrowserRouter([
       {
         path: "/airquality",
         element: <AirQuality />,
-      },
-
-      {
-        path: "/health",
-        element: <Health />,
       },
       {
         path: "/about",
