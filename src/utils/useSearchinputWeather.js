@@ -23,9 +23,6 @@ const useSearchinputWeather = (input) => {
     const forecast = json.forecast;
     console.log(json);
     dispatch(
-      addoriginWeather({ currentWeather: current, currentLocation: loaction })
-    );
-    dispatch(
       addWeather({ current: current, location: loaction, forecast: forecast })
     );
   };

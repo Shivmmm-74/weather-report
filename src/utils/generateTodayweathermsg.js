@@ -4,8 +4,9 @@ const generateTodayWeatherMessage = ({
   cloud,
   aqi,
   condition,
+  location,
 }) => {
-  let message = "";
+  let message = `Today in ${location} .`;
 
   // Temperature-based prediction
   if (temp > 35) {

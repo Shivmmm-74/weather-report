@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <footer class='w-full bg-white p-8'>
-        <div class='flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between'>
+      <footer className='w-full bg-white p-8'>
+        <div className='flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between'>
           <img src={logo} alt='logo' className='h-10 sm:h-14'></img>
 
-          <ul class='flex flex-wrap items-center gap-y-2 gap-x-8'>
+          <ul className='flex flex-wrap items-center gap-y-2 gap-x-8'>
             <li>
               <Link
                 to='/about'
-                class='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
+                className='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
               >
                 About Us
               </Link>
@@ -20,7 +20,7 @@ const Footer = () => {
             <li>
               <Link
                 to='/contact'
-                class='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
+                className='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
               >
                 Contact Us
               </Link>
@@ -28,7 +28,7 @@ const Footer = () => {
             <li>
               <a
                 href='#'
-                class='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
+                className='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
               >
                 Contribute
               </a>
@@ -36,14 +36,14 @@ const Footer = () => {
             <li>
               <a
                 href='#'
-                class='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
+                className='text-slate-700 hover:text-slate-500 focus:text-slate-500 text-sm'
               >
                 License
               </a>
             </li>
           </ul>
         </div>
-        <p class='block mb-4 text-sm text-center text-slate-500 md:mb-0 border-t border-slate-200 mt-4 pt-4'>
+        <p className='block mb-4 text-sm text-center text-slate-500 md:mb-0 border-t border-slate-200 mt-4 pt-4'>
           Copyright © 2025&nbsp;
           <a
             href='https://material-tailwind.com/'

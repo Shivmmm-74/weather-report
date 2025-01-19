@@ -7,7 +7,8 @@ const AstroCard = () => {
   const astro = data?.forecastday[0]?.astro;
   const moonphse = useMoonPhase({ moonphase: astro?.moon_phase || "New Moon" });
   const astroRef = useRef(null);
-  const [astroVisible, setAstroVisible] = useState(false);
+  const [astroVisible, setAstroVisible] = useState(true);
+  // console.log(astro?.moon_phase);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

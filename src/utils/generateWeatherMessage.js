@@ -1,4 +1,4 @@
-const generateWeatherMessage = (current) => {
+const generateWeatherMessage = ({ current, location }) => {
   if (!current) return "";
   const {
     temp_c = 0,
@@ -11,7 +11,7 @@ const generateWeatherMessage = (current) => {
   } = current;
   const conditionText = condition.text.toLowerCase();
 
-  let message = "";
+  let message = `Currently in ${location} .`;
 
   // Temperature-based message
   if (temp_c > 35) {
