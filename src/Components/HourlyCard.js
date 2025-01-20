@@ -14,29 +14,6 @@ const HourlyCard = () => {
   const [currentTime, setCurrentTime] = useState("");
   const [hrFilter, setHrFilter] = useState([]);
   const cont = useRef(null);
-  const contRef = useRef(null);
-  const [contVisible, setcontVisible] = useState(true);
-  // console.log(astro?.moon_phase);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setcontVisible(entry.isIntersecting);
-      },
-      { threshold: 0.2 }
-    );
-
-    if (contRef.current) {
-      observer.observe(contRef.current);
-    }
-
-    return () => {
-      if (contRef.current) {
-        observer.unobserve(contRef.current);
-      }
-    };
-  }, []);
 
   const handleScrollLeft = () => {
     if (cont.current) {
@@ -77,10 +54,7 @@ const HourlyCard = () => {
 
   return (
     <div
-      className={`mt-5 sm:mt-10 sm:px-64 px-2 transform transition-transform duration-[2000ms] ease-in-out ${
-        contVisible ? "scale-100 " : "scale-0 "
-      }`}
-      ref={contRef}
+      className={`mt-5 sm:mt-10 sm:px-64 px-2 transform transition-transform duration-[2000ms] ease-in-out `}
     >
       <div className='bg-gray-200 border border-black w-full flex flex-col rounded-md'>
         <div className='border-b-2 border-black px-8 sm:px-12 py-2 flex justify-between'>

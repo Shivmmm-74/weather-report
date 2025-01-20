@@ -3,14 +3,23 @@ import TodayWeather from "./TodayWeather";
 import CurrentWeather from "./CurrentWeather";
 import AstroCard from "./AstroCard";
 import HourlyCard from "./HourlyCard";
+import { Fade } from "react-awesome-reveal";
 
 const Body = () => {
   return (
     <div>
-      <CurrentWeather />
-      <TodayWeather />
-      <AstroCard />
-      <HourlyCard />
+      <Fade
+        cascade
+        damping={0.2}
+        delay={200}
+        fraction={0.5} // Trigger when 50% visible
+        triggerOnce
+      >
+        <CurrentWeather />
+        <TodayWeather />
+        <AstroCard />
+        <HourlyCard />
+      </Fade>
     </div>
   );
 };

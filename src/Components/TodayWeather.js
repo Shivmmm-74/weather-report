@@ -3,35 +3,16 @@ import { useSelector } from "react-redux";
 import useAQIStatus from "../utils/useAqiStatus";
 import usedayBgImg from "../utils/usetodaybgimg";
 import generatedayWeatherMessage from "../utils/generateTodayweathermsg";
+import { Fade } from "react-awesome-reveal";
 
 const TodayWeather = () => {
-  const conatinerRef = useRef(null);
-  const [contVisible, setcontVisible] = useState(true);
   const day = useSelector((store) => store.weather?.currentWeather);
   const today = useSelector(
     (store) => store.weather?.weatherForecast?.forecastday[0]?.day
   );
   const [isShowMore, setIsShowMore] = useState(false);
   const location = useSelector((store) => store?.weather?.location);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setcontVisible(entry.isIntersecting);
-      },
-      { threshold: 0.2 }
-    );
 
-    if (conatinerRef.current) {
-      observer.observe(conatinerRef.current);
-    }
-
-    return () => {
-      if (conatinerRef.current) {
-        observer.unobserve(conatinerRef.current);
-      }
-    };
-  }, []);
   if (!day || !Location) return <div></div>;
   const aqi = day?.air_quality["us-epa-index"];
   const { color, text } = useAQIStatus(aqi);
@@ -61,10 +42,7 @@ const TodayWeather = () => {
 
   return (
     <div
-      className={`mt-5 sm:mt-10 sm:px-64 px-2 transform transition-transform duration-[2000ms] ease-in-out ${
-        contVisible ? "scale-100 " : "scale-0 "
-      }`}
-      ref={conatinerRef}
+      className={`mt-5 sm:mt-10 sm:px-64 px-2 transform transition-transform duration-[2000ms] ease-in-out `}
     >
       <div className='bg-gray-200 border border-black w-full  flex flex-col rounded-md overflow-hidden'>
         <div className='border-b-2 border-black px-8  sm:px-12 py-2  flex justify-between'>

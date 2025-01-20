@@ -33,7 +33,6 @@ const HourlySlider = ({ hour, date, day }) => {
           <p className='font-bold text-sm text-gray-600'>{date}</p>
         </div>
         <div className='relative flex flex-row  group w-full gap-5 p-2 sm:p-5 sm:text-lg font-bold bg-gradient-to-t from-orange-500 to-amber-300'>
-          {/* Scroll Left Button */}
           <button
             className='hidden absolute left-0 top-1/2 transform -translate-y-1/2 z-40 sm:group-hover:block'
             onClick={handleScrollLeft}
@@ -41,7 +40,6 @@ const HourlySlider = ({ hour, date, day }) => {
             <img src={leftarrow} className='w-11'></img>
           </button>
 
-          {/* Scroll Right Button */}
           <button
             className='hidden absolute right-0 top-1/2 transform -translate-y-1/2 z-40 group-hover:block'
             onClick={handleScrollRight}
@@ -54,7 +52,6 @@ const HourlySlider = ({ hour, date, day }) => {
             className='flex flex-row w-full overflow-x-auto no-scrollbar gap-2 sm:gap-5'
             style={{ scrollBehavior: "smooth" }}
           >
-            {/* Hourly Data */}
             {hour.map((e) => (
               <div
                 key={e.time_epoch}

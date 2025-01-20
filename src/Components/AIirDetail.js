@@ -1,6 +1,7 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { JackInTheBox, Roll } from "react-awesome-reveal";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -68,31 +69,37 @@ const AirQualityChart = ({ airQualityData }) => {
   return (
     <div className='w-full flex flex-col items-center  '>
       <h2 className='text-xl font-bold mb-4'>Air Quality Breakdown</h2>
-      <div className='w-1/2'>
-        <Pie data={data} options={options} />
+
+      <div className='w-full sm:w-1/3'>
+        <Roll duration={5000}>
+          <Pie data={data} options={options} />
+        </Roll>
       </div>
-      <div className='mt-6 sm:mx-64  mx-4 p-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg shadow-lg text-white'>
-        <h3 className='text-lg font-semibold mb-2'>
-          <span className='underline'>EPA Index:</span> {epaIndex}
-        </h3>
-        <p className='mb-4'>{airQualityMessage}</p>
-        <h3 className='text-lg font-semibold mb-2'>
-          <span className='underline'>DEFRA Index:</span> {defraIndex}
-        </h3>
-        <p>
-          The DEFRA index indicates air quality. A value of {defraIndex} means{" "}
-          <span className='font-bold'>
-            {defraIndex <= 3
-              ? "Low"
-              : defraIndex <= 6
-              ? "Moderate"
-              : defraIndex <= 9
-              ? "High"
-              : "Very High"}
-          </span>{" "}
-          pollution.
-        </p>
-      </div>
+
+      <JackInTheBox>
+        <div className='mt-6 sm:mx-64  mx-4 p-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg shadow-lg text-white'>
+          <h3 className='text-lg font-semibold mb-2'>
+            <span className='underline'>EPA Index:</span> {epaIndex}
+          </h3>
+          <p className='mb-4'>{airQualityMessage}</p>
+          <h3 className='text-lg font-semibold mb-2'>
+            <span className='underline'>DEFRA Index:</span> {defraIndex}
+          </h3>
+          <p>
+            The DEFRA index indicates air quality. A value of {defraIndex} means{" "}
+            <span className='font-bold'>
+              {defraIndex <= 3
+                ? "Low"
+                : defraIndex <= 6
+                ? "Moderate"
+                : defraIndex <= 9
+                ? "High"
+                : "Very High"}
+            </span>{" "}
+            pollution.
+          </p>
+        </div>
+      </JackInTheBox>
     </div>
   );
 };

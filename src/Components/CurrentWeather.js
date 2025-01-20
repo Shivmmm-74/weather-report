@@ -10,28 +10,7 @@ const CurrentWeather = () => {
   const [datePart, timePart] = localday_time.split(" ") || ["", ""];
   const current = useSelector((store) => store.weather.currentWeather);
   const [isShowMore, setIsShowMore] = useState(false);
-  const conatinerRef = useRef(null);
-  const [conatinerVisible, setconatinerVisible] = useState(true);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setconatinerVisible(entry.isIntersecting);
-      },
-      { threshold: 0.2 }
-    );
-
-    if (conatinerRef.current) {
-      observer.observe(conatinerRef.current);
-    }
-
-    return () => {
-      if (conatinerRef.current) {
-        observer.unobserve(conatinerRef.current);
-      }
-    };
-  }, []);
   if (!current) {
     return <Shimmer />;
   }
@@ -65,10 +44,8 @@ const CurrentWeather = () => {
 
   return (
     <div
-      className={`mt-5 sm:mt-10 sm:px-64 px-2 transform transition-transform duration-[2000ms] ease-in-out ${
-        conatinerVisible ? "scale-100 " : "scale-0 "
-      }`}
-      ref={conatinerRef}
+      className={`mt-5 sm:mt-10 sm:px-64 px-2 transform transition-transform duration-[2000ms] ease-in-out `}
+      // ref={conatinerRef}
     >
       <div className='border bg-opacity-80 border-black w-full  flex flex-col rounded-md overflow-hidden'>
         <div className='border-b-2 border-black px-8 sm:px-12 py-2 flex justify-between'>

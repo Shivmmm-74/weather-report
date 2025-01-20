@@ -5,7 +5,10 @@ const useMoonPhase = ({ moonphase }) => {
   if (moonphase.includes("First")) {
     return require("../assets/moon/first_quarter.jpg");
   }
-  if (moonphase.includes("Third")) {
+  if (moonphase.includes("Third" || "Last")) {
+    return require("../assets/moon/third_quarter_moon.jpg");
+  }
+  if (moonphase.includes("Last")) {
     return require("../assets/moon/third_quarter_moon.jpg");
   }
   if (moonphase.includes("New")) {

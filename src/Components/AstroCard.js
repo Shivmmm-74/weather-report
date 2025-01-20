@@ -6,29 +6,6 @@ const AstroCard = () => {
   const data = useSelector((store) => store.weather.weatherForecast);
   const astro = data?.forecastday[0]?.astro;
   const moonphse = useMoonPhase({ moonphase: astro?.moon_phase || "New Moon" });
-  const astroRef = useRef(null);
-  const [astroVisible, setAstroVisible] = useState(true);
-  // console.log(astro?.moon_phase);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setAstroVisible(entry.isIntersecting);
-      },
-      { threshold: 0.2 }
-    );
-
-    if (astroRef.current) {
-      observer.observe(astroRef.current);
-    }
-
-    return () => {
-      if (astroRef.current) {
-        observer.unobserve(astroRef.current);
-      }
-    };
-  }, []);
 
   if (!astro) {
     return (
@@ -40,10 +17,7 @@ const AstroCard = () => {
 
   return (
     <div
-      ref={astroRef}
-      className={`mt-5 sm:mt-10 sm:px-64 px-2 transform transition-transform duration-[2000ms] ease-in-out ${
-        astroVisible ? "scale-100 " : "scale-0 "
-      }`}
+      className={`mt-5 sm:mt-10 sm:px-64 px-2 transform transition-transform duration-[2000ms] ease-in-out `}
     >
       <div className='bg-gray-200 border border-black w-full sm:h-64 flex flex-col rounded-md'>
         <div className='border-b-2 border-black px-8 sm:px-12 py-2 flex justify-between'>
