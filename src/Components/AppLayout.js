@@ -8,7 +8,7 @@ import Footer from "./Footer";
 
 const AppLayout = () => {
   return (
-    <div className='w-full'>
+    <div className='w-full bg-emerald-50'>
       <Provider store={appStore}>
         <Header />
         <Navbar />

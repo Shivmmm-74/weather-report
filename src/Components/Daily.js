@@ -9,7 +9,7 @@ const Daily = () => {
 
   // console.log(weatherData);
   return (
-    <div className='bg-gray-100 sm:px-64'>
+    <div className='bg-emerald-50 sm:px-64'>
       <Slide direction='left' damping={0.1} cascade triggerOnce>
         {weatherData.map((e, index) => {
           const date = new Date(e.date);

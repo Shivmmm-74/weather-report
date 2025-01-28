@@ -35,7 +35,7 @@ const SearchComponent = () => {
         </button>
         <input
           ref={searchstring}
-          placeholder='Enter City or ZipCode'
+          placeholder='Enter City or town name'
           className='hidden sm:block px-3 focus:outline-none focus:ring-0 border-none'
         />
       </div>

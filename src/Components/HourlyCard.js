@@ -56,7 +56,7 @@ const HourlyCard = () => {
     <div
       className={`mt-5 sm:mt-10 sm:px-64 px-2 transform transition-transform duration-[2000ms] ease-in-out `}
     >
-      <div className='bg-gray-200 border border-black w-full flex flex-col rounded-md'>
+      <div className='bg-opacity-80  border border-black w-full flex flex-col rounded-md'>
         <div className='border-b-2 border-black px-8 sm:px-12 py-2 flex justify-between'>
           <p className='font-bold text-sm text-gray-500'>Hourly</p>
           <p className='font-bold text-sm text-gray-600'>{currentTime} </p>

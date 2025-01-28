@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 const Navbar = () => {
   const location = useLocation();
   return (
-    <div className='flex mt-14 pt-2 sm:mt-20 justify-center gap-4 sm:gap-24 pb-2  mx-1 sm:mx-64 border-b-2 border-gray-700 '>
+    <div className='flex mt-14 pt-2 sm:mt-20 justify-center gap-4 sm:gap-24 pb-2  mx-1 sm:mx-64 border-b-2 border-gray-700 bg-emerald-50 '>
       {navlist.map((nav) => (
         <Link key={nav.link} to={nav.link}>
           <p

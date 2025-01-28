@@ -4,9 +4,20 @@ import useAQIStatus from "../utils/useAqiStatus"; // Ensure the correct path to 
 import { Slide } from "react-awesome-reveal";
 
 const Hourly = () => {
-  const weatherData = useSelector(
-    (store) => store.weather?.weatherForecast?.forecastday[0]?.hour
+  const weatherData1 = useSelector(
+    (store) => store.weather?.weatherForecast?.forecastday[0]?.hour || []
   );
+  const weatherData2 = useSelector(
+    (store) => store.weather?.weatherForecast?.forecastday[1]?.hour
+  );
+  let weatherData;
+
+  if (weatherData1.length == 0) {
+    weatherData = weatherData2;
+  } else {
+    weatherData = weatherData1;
+  }
+
   const [hrFilter, setHrFilter] = useState([]);
 
   useEffect(() => {
@@ -20,7 +31,7 @@ const Hourly = () => {
   }, [weatherData]);
 
   return (
-    <div className='bg-gray-100 sm:px-64'>
+    <div className='bg-emerald-50 sm:px-64 h-full'>
       <Slide direction='right' cascade damping={0.1} triggerOnce>
         {hrFilter.map((e, index) => {
           // const aqi = e.air_quality?.["us-epa-index"];

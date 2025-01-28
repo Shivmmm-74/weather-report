@@ -7,7 +7,7 @@ import { Fade } from "react-awesome-reveal";
 
 const Body = () => {
   return (
-    <div>
+    <div className='bg-emerald-50'>
       <Fade
         cascade
         damping={0.2}
