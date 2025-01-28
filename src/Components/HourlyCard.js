@@ -64,7 +64,7 @@ const HourlyCard = () => {
         <div className='relative flex flex-row  group w-full gap-5 p-2 sm:p-5 sm:text-lg font-bold bg-gradient-to-t from-orange-500 to-amber-300'>
           {/* Scroll Left Button */}
           <button
-            className='hidden absolute left-0 top-1/2 transform -translate-y-1/2 z-40 sm:group-hover:block'
+            className='hidden absolute left-0 top-1/2 transform -translate-y-1/2 z-40 lg:group-hover:block'
             onClick={handleScrollLeft}
           >
             <img src={leftarrow} className='w-11'></img>
@@ -72,7 +72,7 @@ const HourlyCard = () => {
 
           {/* Scroll Right Button */}
           <button
-            className='hidden absolute right-0 top-1/2 transform -translate-y-1/2 z-40 group-hover:block'
+            className='hidden absolute right-0 top-1/2 transform -translate-y-1/2 z-40 lg:group-hover:block'
             onClick={handleScrollRight}
           >
             <img src={right} className='w-11'></img>

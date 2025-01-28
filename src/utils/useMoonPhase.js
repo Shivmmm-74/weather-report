@@ -11,7 +11,7 @@ const useMoonPhase = ({ moonphase }) => {
   if (moonphase.includes("Last")) {
     return require("../assets/moon/third_quarter_moon.jpg");
   }
-  if (moonphase.includes("New")) {
+  if (moonphase.includes("New Moon")) {
     return require("../assets/moon/newmoon.jpg");
   }
   if (moonphase.includes("Waxing Crescent")) {
